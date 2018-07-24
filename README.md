@@ -4,7 +4,6 @@
 ### 项目生成
 - 使用 `Create React App` 生成项目
 - 安装 `react-router-dom` 引入路由
-- 安装 `axios`
 
 ### 参考文档
 
@@ -13,6 +12,17 @@
 - [react 文档](https://doc.react-china.org/docs/hello-world.html)
 
 ### 配置项
+#### 引入axios
+在`package.json`底部增加以下代码解决跨域问题
+```
+"proxy": {
+    "/api": {
+      "target": "http://**********",
+      "changeOrigin": true
+    }
+  }
+```
+
 #### 引入stylus
 - 安装 `stylus` 和 `stylus-loader`
 - 使用命令 `yarn run eject` 暴露配置文件

@@ -99,7 +99,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://47.92.38.58",
+      "target": "",  // api url
       "changeOrigin": true
     }
   }
