@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
-import logo from './assets/logo.svg';
-import './assets/App.css';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+import './assets/css/index.styl'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+import Header from './components/header/Header'
+import Menu from './components/menu/Menu'
+
+import Project from './views/project/Project'
+import API from './views/api/API'
+import User from './views/user/User'
+
+const BasicExample = () => (
+  <Router>
+    <div className="main-container uf uf-col">
+      <Header/>
+      <div className="container uf uf-f1">
+        <Menu/>
+        <Route exact path="/" component={Project}/>
+        <Route path="/apis" component={API}/>
+        <Route path="/users" component={User}/>
       </div>
-    );
-  }
-}
+    </div>
+  </Router>
+)
 
-export default App;
+export default BasicExample

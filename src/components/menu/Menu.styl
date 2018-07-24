@@ -1,0 +1,75 @@
+@import "../../assets/css/methods/index.styl"
+.monkey-menu {
+  position relative
+  background #2a3542
+  color #aeb2b7
+}
+
+.menu-item {
+  width 160px
+  margin-bottom 5px
+  margin-left 10px
+  margin-right 10px
+  & a {
+    display block
+    min-width 26px
+    padding 12px 0 12px 12px
+    border-radius 4px
+    color #aeb2b7
+    $transition(all .4s ease)
+    &:hover {
+      background #35404d
+      & i {
+        color #FF6C60
+      }
+    }
+  }
+  & a.active-menu-item {
+    background #35404d
+    color #fff
+    & i {
+      color #FF6C60
+    }
+  }
+  & i, & span {
+    display inline-block
+    vertical-align middle
+  }
+  & span {
+    padding-left 10px
+  }
+}
+
+.toggle-menu-item {
+  text-align center
+  height 40px
+  & i {
+    font-size 16px
+    line-height 40px
+    $transition(all .4s ease)
+  }
+}
+
+.toggle-menu-checkbox {
+  position absolute
+  z-index 1
+  width 100%
+  height 40px
+  top 0
+  left 0
+  cursor pointer
+  opacity 0
+  &:hover {
+    & ~ .toggle-menu-item i {
+      color #c7c7c7
+    }
+  }
+  &:checked {
+    & ~ .menu-item {
+      width auto
+      & span {
+        display none
+      }
+    }
+  }
+}
