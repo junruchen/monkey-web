@@ -8,6 +8,6 @@
 import {
   ajax,
   BASEURL
-} from './ajax'
+} from '@/ajax'
 
 export const getUserListAPI = (params = {}) => ajax({url: BASEURL + 'user', method: 'get', params: params})

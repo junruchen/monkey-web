@@ -3,16 +3,24 @@
 
 ### 项目生成
 - 使用 `Create React App` 生成项目
-- 安装 `react-router-dom` 引入路由
+-
+
+### 项目部署
+- 本地开发 `yarn start`
+- 线上部署 `yarn build`
 
 ### 参考文档
-
-- [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
-- [react-router 中文文档](http://reacttraining.cn/)
 - [react 文档](https://doc.react-china.org/docs/hello-world.html)
+- [react-router 中文文档1](http://reacttraining.cn/)
+- [react-router 中文文档2](http://react-guide.github.io/react-router-cn/docs/guides/basics/RouteConfiguration.html)
+- [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
 
 ### 配置项
-#### 引入axios
+####  引入 react-router-dom 路由
+`react-router-dom` 依赖 `react-router`，所以使用npm安装依赖的时候，只需要安装相应环境下的库即可，不用再显式安装react-router。
+
+
+#### 引入 axios
 在`package.json`底部增加以下代码解决跨域问题
 ```
 "proxy": {
@@ -23,7 +31,7 @@
   }
 ```
 
-#### 引入stylus
+#### 引入 stylus
 - 安装 `stylus` 和 `stylus-loader`
 - 使用命令 `yarn run eject` 暴露配置文件
 - 在 `webpack.config.dev.js` 与`webpack.config.prod.js` 的 `module/rules/oneOf` 中修改一下代码：

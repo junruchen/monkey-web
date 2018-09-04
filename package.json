@@ -13,9 +13,11 @@
     "babel-runtime": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
+    "classnames": "^2.2.6",
     "css-loader": "0.28.7",
     "dotenv": "4.0.0",
     "dotenv-expand": "4.2.0",
+    "echarts": "^4.1.0",
     "eslint": "4.10.0",
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "1.9.0",
@@ -34,8 +36,10 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react": "^16.4.1",
+    "react-css-modules": "^4.7.7",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
+    "react-plupload": "^0.0.21",
     "react-router-dom": "^4.3.1",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
@@ -96,11 +100,5 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "proxy": {
-    "/api": {
-      "target": "",  // api url
-      "changeOrigin": true
-    }
   }
 }

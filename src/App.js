@@ -3,24 +3,29 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import './assets/css/index.styl'
 
-import Header from './components/header/Header'
-import Menu from './components/menu/Menu'
-
-import Project from './views/project/Project'
-import API from './views/api/API'
-import User from './views/user/User'
+import Header from '@/components/header/Header'
+import Introduce from '@/views/introduce/Introduce'
+import Projects from '@/views/projects/Projects'
+import Project from '@/views/project/Project'
+import Logs from '@/views/logs/Logs'
+import Usercenter from '@/views/usercenter/Usercenter'
+import Login from '@/views/login/Login'
+import NewProject from '@/views/newProject/NewProject'
 
 const BasicExample = () => (
-  <Router>
+  <Router
+    basename="/">
     <div className="main-container uf uf-col">
       <Header/>
-      <div className="container uf uf-f1">
-        <Menu/>
-        <Route exact path="/" component={Project}/>
-        <Route path="/apis" component={API}/>
-        <Route path="/users" component={User}/>
+      <div className="main-content uf-f1">
+        <Route exact path="/" component={Introduce}/>
+        <Route exact path="/projects" component={Projects}/>
+        <Route path="/new-project" component={NewProject}/>
+        <Route path="/projects/:id" component={Project}/>
+        <Route path="/logs" component={Logs}/>
+        <Route path="/usercenter" component={Usercenter}/>
+        <Route path="/login" component={Login}/>
       </div>
     </div>
   </Router>

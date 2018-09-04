@@ -8,6 +8,10 @@
   }
 }
 
+* {
+  letter-spacing .5px
+}
+
 // Body reset
 html {
   width 100%
@@ -19,9 +23,9 @@ body {
   position relative
   width 100%
   height 100%
-  font-family  -apple-system, 'PingFang SC', 'Hiragino Sans GB', Roboto, Arial, 'Microsoft YaHei', sans-serif;
-  color #303133
-  background-color #f1f2f7
+  font-family -apple-system, 'PingFang SC', 'Hiragino Sans GB', Roboto, Arial, 'Microsoft YaHei', sans-serif;
+  color #333
+  background-color #f9f9f9
   font-size 12px
 }
 
@@ -36,6 +40,7 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+
 input[placeholder], textarea[placeholder] {
   color #c0c4cc
 }
@@ -51,8 +56,14 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color #c0c4cc
 }
-.el-input input, .el-textarea textarea {
-  color #303133
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 // Horizontal rules
@@ -151,7 +162,7 @@ li {
 
 // Links
 a {
-  color #45B6AF
+  color #2186E9
   &,
   &:link,
   &:visited {
@@ -160,7 +171,7 @@ a {
   }
   &:hover,
   &:active {
-    color rgb(106, 197, 191)
+    color #549be0
     text-decoration: none;
   }
 }

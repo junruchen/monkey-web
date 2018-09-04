@@ -183,6 +183,9 @@ module.exports = {
                         importLoaders: 1,
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
+                        // 改动
+                        modules: true,   // 新增对css modules的支持
+                        localIdentName: '[name]__[local]__[hash:base64:5]',
                       },
                     },
                     {

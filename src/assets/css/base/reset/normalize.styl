@@ -128,9 +128,24 @@ input,
 optgroup,
 select,
 textarea {
+  background none
   color: inherit; // 1
   font: inherit; // 2
   margin: 0; // 3
+}
+
+input,
+textarea {
+  width 100%
+  box-sizing border-box
+  color #333333
+  font-size 13px
+  border 1px solid #DCDFE6
+  border-radius 4px
+  resize none
+  &:hover {
+    border-color #F69393
+  }
 }
 
 button {

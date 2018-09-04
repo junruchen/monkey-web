@@ -1,11 +1,260 @@
-#root {
-  width 100%
+// :global css-modules 全局类名
+:global #root {
+  min-width 1280px
   height 100%
-  & .main-container {
-    width inherit
-    height inherit
+}
+
+:global .main-container {
+  width inherit
+  height inherit
+}
+
+:global .main-content {
+  width 100%
+  overflow auto
+}
+
+:global .container {
+  width 1100px
+  margin 0 auto
+}
+
+:global .handle-box {
+  margin-left 15px
+  & .icon-m-more {
+    color #666666
   }
-  & .wrapper {
-    padding 15px
+  & .select-box {
+    margin-top 5px
+    left auto
+    right -5px
+    transform translateX(0)
+    &:before {
+      left 100%
+      margin-left -18px
+    }
+  }
+}
+
+:global .select-box {
+  white-space nowrap
+  top 100%
+  margin-top 12px
+  left 50%
+  transform translateX(-50%)
+  padding 10px 0 6px
+  &:before {
+    left 50%
+    margin-left -6px
+  }
+}
+
+:global .select-item {
+  cursor pointer
+  width 100%
+  box-sizing border-box
+  padding 0 14px
+  line-height 27px
+  &.active {
+    color #E26A6A
+  }
+  &:hover {
+    background-color #F1F2F7
+  }
+  &.disabled {
+    pointer-events none
+    color #CDCDCD
+    background-color #ECECEC
+  }
+}
+
+:global .btn-group {
+  & button {
+    margin-left 20px
+    &:first-child {
+      margin-left 0
+    }
+  }
+}
+
+:global .btn {
+  border none
+  outline none
+  font-size 14px
+  padding 5px 30px
+  border-radius 4px
+  box-sizing border-box
+  color #fff
+  background #E26A6A
+  border 1px solid transparent
+  & a {
+    display inline-block
+    padding 5px 30px
+    box-sizing border-box
+    color #fff
+  }
+  &.small {
+    font-size 13px
+    padding 5px 22px
+    & a {
+      padding 5px 22px
+    }
+    &.link-btn {
+      padding 0
+    }
+  }
+  &.link-btn {
+    padding 0
+  }
+  &:hover {
+    background #e88181
+    & a {
+      color #fff
+    }
+  }
+  &.disabled {
+    pointer-events none
+    color #F1F2F7
+    background #F4C3C3
+    & a {
+      color #F1F2F7
+    }
+  }
+  &.cancel-btn {
+    background #FBFBFB
+    color #666666
+    border-color #B1AFAF
+    & a {
+      color #666666
+    }
+    &:hover {
+      color #E26A6A
+      border-color #F69393
+      background rgba(#F69393, .3)
+      & a {
+        color #E26A6A
+      }
+    }
+  }
+}
+
+:global .text-btn {
+  position relative
+  border none
+  color #E26A6A
+  &:hover {
+    color #F69393
+  }
+}
+
+:global .icon-btn {
+  cursor pointer
+  width 20px
+  height 20px
+  line-height 20px
+  text-align center
+  border 1px solid #E26A6A
+  background rgba(#E26A6A, .3)
+  color #E26A6A
+  border-radius 4px
+  &:hover {
+    color #FFFFFF
+    background #E26A6A
+  }
+}
+
+:global .search-box {
+  width 100%
+  height 32px
+  padding 0 10px
+  line-height 32px
+  border 1px solid #DCDFE6
+  border-radius 4px
+  & input {
+    width calc(100% - 20px)
+    border none
+    color #333
+  }
+  & .icon-m-search {
+    font-size 16px
+    color #DCDFE6
+  }
+  &:hover {
+    border-color #F69393
+    & .icon-m-search {
+      color #F69393
+    }
+  }
+}
+
+:global .panel-box {
+  padding-top 20px
+  & .panel-title {
+    position relative
+    display inline-block
+    vertical-align middle
+    width 100px
+    text-align center
+    color #858484
+    font-size 13px
+    line-height 30px
+    background #FBFBFB
+    border 1px solid transparent
+    border-right-color #DCDFE6
+    border-top-color #DCDFE6
+    &:first-child {
+      border-radius 4px 0 0 0
+      border-left-color #DCDFE6
+    }
+    &:last-child {
+      border-radius 0 4px 0 0
+    }
+    &:before {
+      position absolute
+      content ''
+      width 100%
+      height 1px
+      bottom -2px
+      left 0
+      background transparent
+    }
+    &.active {
+      color #333
+      background #fff
+      &:before {
+        background #fff
+      }
+    }
+  }
+  & .panel-content {
+    border 1px solid #DCDFE6
+    border-radius 0 4px 4px 4px
+    & .res-box {
+      position relative
+      margin 10px
+      background #FBFBFB
+      overflow auto
+      &:before {
+        position absolute
+        content ''
+        height 100%
+        width 5px
+        background #DCDFE6
+        left 0px
+        top 0
+      }
+    }
+    & .line-count-box, & .code-box {
+      line-height 20px
+    }
+    & .line-count-box {
+      background #F1F2F7
+      color #B1AFAF
+      padding 5px 5px 5px 10px
+      text-align right
+    }
+    & .code-box {
+      padding 5px
+    }
   }
 }
