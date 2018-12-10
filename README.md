@@ -19,8 +19,8 @@
 ### 配置项
 #### 1、Ant Design UI库引入
 - `yarn add antd` 安装UI库
-- `babel-plugin-import` 实现按需引入
-- `react-app-rewire-less` 实现自定义主题
+- `yarn add babel-plugin-import` 实现按需引入
+- `yarn add react-app-rewire-less` 实现自定义主题
 
 **config-overrides.js** 具体配置如下：
 ```
