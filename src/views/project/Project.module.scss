@@ -1,0 +1,296 @@
+@import '../../assets/css/methods/index';
+
+@mixin verticalMiddle($align: middle) {
+  display: inline-block;
+  vertical-align: $align;
+}
+
+@mixin projectAnalysisCard() {
+  @include verticalMiddle();
+  background: #fff;
+  border: 1px solid #E5E8EB;
+  border-radius: 4px;
+  box-shadow: 0 1px 10px 1px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+}
+
+@mixin chartIconBox() {
+  @include verticalMiddle();
+  position: relative;
+  overflow: hidden;
+  width: 32px;
+  height: 32px;
+  margin-top: 7px;
+  border-radius: 50%;
+  & i {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #fff;
+  }
+  &:before, &:after {
+    position: absolute;
+    z-index: 0;
+    content: '';
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  &:before {
+    right: 12px;
+    bottom: 14px;
+  }
+  &:after {
+    left: 6px;
+    bottom: 12px;
+  }
+}
+.projectContainer {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.projectDetailBox {
+  @include verticalMiddle;
+  width: 350px;
+  height: 170px;
+  margin: 25px 0 30px;
+  padding: 10px 15px 0;
+  background: #fff;
+  border: 1px solid #E5E8EB;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 1px 10px 1px rgba(0, 0, 0, .05);
+}
+
+.projectTitle {
+  position: relative;
+  margin-bottom: 20px;
+  &:before {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 24px;
+    top: 50%;
+    margin-top: -12px;
+    left: -15px;
+    background: #E26A6A;
+  }
+}
+
+.projectImageBox {
+  @include verticalMiddle;
+  width: 150px;
+  text-align: center;
+  word-break: break-all;
+  & h5 {
+    padding-top: 5px;
+  }
+}
+.projectImage {
+  width: 100%;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  background-image: url("../../assets/img/default.png");
+}
+
+.projectDetail {
+  @include verticalMiddle;
+  width: 160px;
+  padding-left: 8px;
+  & h6 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-bottom: 5px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  & span, & i {
+    @include verticalMiddle;
+  }
+  & span {
+    padding-left: 5px;
+  }
+}
+
+.projectAnalysisBox {
+  @include verticalMiddle;
+  width: 750px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  margin: 25px 0 30px;
+}
+
+.apiSummary {
+  @include projectAnalysisCard;
+  width: 230px;
+  height: 60px;
+  margin-left: 15px;
+  padding: 4px 16px 0;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.apiChart {
+  @include projectAnalysisCard;
+  width: 350px;
+  height: 90px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #fff 138px, transparent 0), #61A0F0;
+  &:last-child {
+    margin-left: 20px;
+    background-color: #55BD87;
+  }
+}
+
+.firstIconBox {
+  @include chartIconBox;
+  background: #E26A6A;
+  &:before {
+    background: rgba(#FAD7D7, .5);
+  }
+  &:after {
+    background: rgba(#F9A4A4, .5);
+  }
+}
+
+.secondIconBox {
+  @include chartIconBox;
+  background: #F9AD37;
+  &:before {
+    background: rgba(#FCDFB1, .5);
+  }
+  &:after {
+    background: rgba(#F7C16F, .5);
+  }
+}
+
+.thirdIconBox {
+  @include chartIconBox;
+  background: #AE4DFF;
+  &:before {
+    background: rgba(#E0C3F8, .5);
+  }
+  &:after {
+    background: rgba(#B081D8, .5);
+  }
+}
+
+.countBox {
+  @include verticalMiddle;
+  padding-left: 10px;
+  & h6 {
+    color: $text-color-secondary;
+  }
+}
+
+.apiChartBox {
+  @include verticalMiddle;
+  position: relative;
+  width: 210px;
+  height: 100%;
+  & > div {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    left: 0;
+  }
+}
+
+.apiChartBoxCount {
+  @include verticalMiddle;
+  width: 138px;
+  box-sizing: border-box;
+  padding: 10px 0 0 16px;
+}
+
+.chartTitle {
+  font-size: 13px;
+  color: $text-color-secondary;
+  & strong {
+    color: $text-color;
+  }
+}
+
+.chartRate {
+  font-size: 0;
+  padding-top: 2px;
+  color: #E26A6A;
+  & span, & i {
+    @include verticalMiddle;
+  }
+  & span {
+    font-size: 15px;
+  }
+  & i {
+    font-size: 14px;
+  }
+}
+
+.isGrowth {
+  transform: rotate(180deg);
+}
+
+.apiChartBar {
+  bottom: 0;
+}
+.apiChartLine {
+  bottom: 10px;
+}
+
+.subContentBox {
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background: #fff;
+  border: 1px solid #E5E8EB;
+  border-radius: 4px;
+  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, .05);
+}
+
+.subTitleBox {
+  height: 36px;
+  font-size: 14px;
+  background: #E5E8EB;
+}
+
+.subTitle {
+  @include verticalMiddle;
+  position: relative;
+  color: $text-color-secondary;
+  padding: 0 25px;
+  line-height: 36px;
+  border-radius: 4px 4px 0 0;
+  &:hover {
+    color: $text-color;
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 18px;
+    background: transparent;
+    top: 50%;
+    margin-top: -9px;
+    left: 0;
+  }
+}
+
+:global .projectActiveSubTitle {
+  color: $text-color;
+  background: #FFFFFF;
+  &:before {
+    background: #E26A6A;
+  }
+}

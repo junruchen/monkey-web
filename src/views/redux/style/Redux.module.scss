@@ -1,0 +1,6 @@
+@import '../../../assets/css/methods/index.scss';
+
+@mixin verticalMiddle($align: middle) {
+  display: inline-block;
+  vertical-align: $align;
+}

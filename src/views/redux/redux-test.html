@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test redux</title>
+</head>
+<body>
+<div id="title"></div>
+<div id="content"></div>
+<script>
+  // reducer : 定义初始数据、以及针对数据的修改
+  // 模块、组件之间可共享数据，可修改数据，但是要按照约定的方式修改
+  // 约定appState的修改方式
+  function reducer (state, action) {
+    if (!state) {
+      return {
+        title: {
+          text: 'React.js 小书',
+          color: 'red',
+        },
+        content: {
+          text: 'React.js 小书内容',
+          color: 'blue'
+        }
+      }
+    }
+    switch (action.type) {
+      case 'UPDATE_TITLE_TEXT':
+        return {
+          ...state,
+          title: {
+            text: action.text,
+            color: state.color
+          }
+        }
+      case 'UPDATE_TITLE_COLOR':
+        return {
+          ...state,
+          title: {
+            text: state.text,
+            color: action.color
+          }
+        }
+      default:
+        return state
+    }
+  }
+
+  function createStore (reducer) {
+    let state = null
+    const listeners = []
+    const subscribe = (listener) => listeners.push(listener)
+    const getState = () => state
+    const dispatch = (action) => {
+      state = reducer(state, action)
+      listeners.forEach((listener) => listener())
+    }
+    dispatch()
+    return { getState, dispatch, subscribe }
+  }
+
+  const store = createStore(reducer)
+  // 监听变化
+  let oldVal = store.getState()
+  store.subscribe(() => {
+    const newVal = store.getState()
+    renderApp(newVal, oldVal)
+    oldVal = newVal
+  })
+
+  function renderApp (appState, oldval = {}) {
+    if (appState === oldval) return
+    console.log('render app...')
+    renderTitle(appState.title, oldval.title)
+    renderContent(appState.content, oldval.content)
+  }
+
+  function renderTitle (title, oldval = {}) {
+    if (title === oldval) return
+    console.log('render title...')
+    const titleDom = document.getElementById('title')
+    titleDom.innerHTML = title.text
+    titleDom.style.color = title.color
+  }
+
+  function renderContent (content, oldval = {}) {
+    if (content === oldval) return
+    console.log('render content...')
+    const contentDom = document.getElementById('content')
+    contentDom.innerHTML = content.text
+    contentDom.style.color = content.color
+  }
+
+  renderApp(store.getState()) // 首次渲染页面
+  store.dispatch({ type: 'UPDATE_TITLE_TEXT', text: '《React.js 小书》' }) // 修改标题文本
+  store.dispatch({ type: 'UPDATE_TITLE_COLOR', color: 'blue' }) // 修改标题颜色
+</script>
+</body>
+</html>

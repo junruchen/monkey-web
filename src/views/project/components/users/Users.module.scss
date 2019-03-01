@@ -1,0 +1,23 @@
+.usersContainer {
+  width: 600px;
+  margin: 0 auto;
+  padding: 25px 0 55px;
+}
+
+.addUserLabel {
+  font-size: 13px;
+}
+
+.inputBox {
+  padding: 0 30px 0 28px;
+  & input {
+    color: #333;
+    padding: 7px 12px;
+  }
+}
+
+.addUserDes {
+  text-align: center;
+  padding: 8px 0 20px;
+  color: #666;
+}

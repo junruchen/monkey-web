@@ -1,0 +1,23 @@
+.nowrap {
+  @include ellipsis;
+}
+.ellipsis {
+  @include ellipsis;
+}
+.ellipsis-ln-2 {
+  @include ellipsisLn(2);
+}
+.ellipsis-ln-3 {
+  @include ellipsisLn(3);
+}
+// 文字换行
+.text_wrap {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+// 连字符
+.hyphens {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}

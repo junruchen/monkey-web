@@ -1,0 +1,48 @@
+@import '../../../assets/css/methods/index';
+
+@mixin verticalMiddle($align: middle) {
+  display: inline-block;
+  vertical-align: $align;
+}
+
+.loginContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #b8eeff, #739ce9);
+}
+
+.loginBox {
+  position: absolute;
+  width: 370px;
+  padding: 40px 35px 50px;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  margin-left: -185px;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 4px;
+}
+
+.monkeyHeaderLogo {
+  width: 160px;
+  margin: 0 auto;
+  height: 45px;
+  background-image: url("../../../assets/img/logo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 45px;
+}
+
+.loginFormItem.ant-form-item {
+  margin-bottom: 16px;
+}
+
+.loginBtn {
+  width: 100%;
+}
+
+.loginFormBox {
+  padding-top: 50px !important;
+}

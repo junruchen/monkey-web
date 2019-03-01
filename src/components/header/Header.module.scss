@@ -1,0 +1,96 @@
+@import '../../assets/css/methods/index';
+
+@mixin verticalMiddle($align: middle) {
+  display: inline-block;
+  vertical-align: $align;
+}
+
+.headerContainer {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  color: $heading-color;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, .05);
+}
+
+.headerContent {
+  max-width: 1200px;
+  height: inherit;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.headerLogo, .headerMenus, .headerMenuItem {
+  @include verticalMiddle
+}
+
+.headerLogo {
+  width: 100px;
+  height: inherit;
+  background-image: url("../../assets/img/logo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 28px;
+}
+
+.headerMenus {
+  padding-left: 80px;
+  line-height: 50px;
+  font-size: 14px;
+
+}
+
+.headerMenuItem {
+  color: inherit;
+  font-weight: 500;
+  &:hover {
+    color: $primary-color;
+  }
+  &:first-child {
+    padding-right: 40px;
+  }
+}
+
+.headerUser {
+  float: right;
+  margin-top: 9px;
+  cursor: pointer;
+}
+
+.headerUserMenu {
+  min-width: 160px;
+  font-size: 13px;
+}
+
+.headerUserEmail {
+  color: $text-color;
+}
+
+.headerUserSetting {
+  padding-top: 6px;
+  & i, & span {
+    @include verticalMiddle
+  }
+  & i {
+    padding-right: 4px;
+  }
+  & a {
+    color: #333;
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+    }
+    &:nth-child(2) {
+      text-align: center;
+    }
+  }
+}
+
+:global(.headerMenuItemActive) {
+  color: $primary-color;
+}

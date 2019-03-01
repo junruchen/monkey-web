@@ -1,0 +1,265 @@
+@import '../../../../assets/css/methods/index';
+
+@mixin verticalMiddle() {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin labelDes() {
+  padding-left: 5px;
+  font-size: 12px;
+  color: #666666;
+}
+
+@mixin text() {
+  color: #333;
+  padding: 7px 12px;
+}
+
+@mixin formLabel() {
+  display: block;
+  font-size: 13px;
+  padding-bottom: 5px;
+}
+
+// api common
+.getApiMethod {
+  color: #19B5FE !important;
+}
+
+.deleteApiMethod {
+  color: #E74C3C !important;
+}
+
+.putApiMethod {
+  color: #F89406 !important;
+}
+
+.postApiMethod {
+  color: #26C281 !important;
+}
+
+// api container box
+.apisContainer {
+  flex: 1;
+  width: 100%;
+}
+
+// api list box
+.apisListContent {
+  width: 240px;
+  flex-direction: column;
+  border-right: 1px solid #E5E8EB;
+  overflow: hidden;
+}
+
+.apisFilterBox {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px 5px;
+}
+
+.apisFilterSearch {
+  flex: 1;
+  width: 163px;
+  margin-right: 12px;
+  & input {
+    font-size: 12px;
+  }
+}
+
+.apisScreeningBox {
+  padding: 6px 10px;
+  border-bottom: 1px solid #DCDFE6;
+}
+
+.screeningItem {
+  @include verticalMiddle;
+  padding-right: 8px;
+  cursor: pointer;
+  color: #666;
+  &.active {
+    font-weight: 500;
+  }
+  &:hover, &.active {
+    color: #333;
+  }
+}
+
+.apisScreeningSortBtns {
+  @include verticalMiddle;
+  float: right;
+  & i {
+    font-size: 16px;
+  }
+  & .active {
+    z-index: 3!important;
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.apisListBox {
+  overflow: auto;
+  & i {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    color: #666;
+    &:hover {
+      color: #E26A6A;
+    }
+  }
+}
+
+.apiListMethod {
+  width: 60px;
+}
+
+.apiName {
+  position: relative;
+  font-size: 13px;
+}
+
+.apiItem {
+  cursor: pointer;
+  padding: 0 15px;
+  line-height: 32px;
+  &:hover {
+    background: #F1F2F7;
+    & i {
+      display: block;
+    }
+  }
+}
+
+.getApi {
+  &.active {
+    background: rgba(#19B5FE, .15);
+  }
+}
+
+.deleteApi {
+  &.active {
+    background: rgba(#E74C3C, .15);
+  }
+}
+
+.postApi {
+  &.active {
+    background: rgba(#00E640, .15);
+  }
+}
+
+.putApi {
+  &.active {
+    background: rgba(#F89406, .15);
+  }
+}
+
+.apisPaginationBox {
+  text-align: right;
+  padding: 6px 10px 6px 0;
+}
+// api add
+.apiNewContent {
+  flex: 1;
+  flex-direction: column;
+  padding-bottom: 10px;
+  overflow: auto;
+  padding: 20px;
+  box-shadow: inset 1px 0 1px -1px rgba(0, 0, 0, .1);
+}
+
+.newTitleBox {
+  color: $heading-color;
+  padding-bottom: 4px;
+  border-bottom: 2px solid $border-color-base;
+}
+
+.newApiFormBox {
+  padding-top: 15px!important;
+  margin-right: -20px!important;
+}
+
+.newApiFormItem {
+  display: inline-block !important;
+  vertical-align: top !important;
+  margin-right: 20px !important;
+  width: calc(50% - 20px);
+}
+.newApiFormItemEditor {
+  margin-right: 20px!important;
+}
+
+// api item container box
+.apiInfoContent {
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+  padding: 20px 20px 10px;
+  box-shadow: inset 1px 0 1px -1px rgba(0, 0, 0, .1);
+}
+
+.apiInfoTitle {
+  line-height: 22px;
+  padding-bottom: 10px;
+}
+
+.apiUrl {
+  cursor: pointer;
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.copyApiBtn {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.apiHandleBtn {
+  & span {
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+    }
+    &:first-child {
+      padding-right: 4px;
+    }
+  }
+}
+
+.apiUsedCount {
+  color: #E26A6A;
+}
+
+.apiInfoBaseBox {
+  line-height: 22px;
+  & div h6 {
+    @include verticalMiddle;
+    min-width: 220px;
+  }
+  &>h6 {
+    max-width: 400px;
+  }
+  & h6 {
+    padding-bottom: 2px;
+    padding-right: 12px;
+    & span:first-child {
+      color: $text-color-secondary;
+    }
+  }
+}
+
+.responseBox {
+  padding-top: 6px;
+}
+.reponseTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: $heading-color;
+  padding-bottom: 2px;
+}

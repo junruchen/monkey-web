@@ -1,0 +1,15 @@
+@mixin transform ($args) {
+  @include prefix('transform', $args);
+}
+
+@mixin transform-origin ($args) {
+  @include prefix('transform-origin', $args);
+}
+
+@mixin transition ($args) {
+  @include prefix('transition', $args);
+}
+
+@mixin animation ($args) {
+  @include prefix('animation', $args);
+}

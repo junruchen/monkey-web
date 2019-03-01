@@ -1,0 +1,133 @@
+@import '../../assets/css/methods/index';
+
+@mixin verticalMiddle($align: middle) {
+  display: inline-block;
+  vertical-align: $align;
+}
+
+// project list
+.filterBox {
+  font-size: 12px;
+  padding: 15px 0;
+}
+
+.sortBox {
+  float: right;
+}
+
+.searchBox, .sortBtns, .newProjectBtn {
+  font-size: 13px;
+  @include verticalMiddle;
+  & input {
+    font-size: inherit;
+  }
+}
+
+.sortBtns {
+  padding: 0 20px 0 10px;
+  & i {
+    font-size: 16px;
+  }
+}
+
+// project item
+.projectItem {
+  display: inline-block;
+  width: 260px;
+  box-sizing: border-box;
+  padding: 30px 15px 12px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #E5E8EB;
+  border-radius: 4px;
+  cursor: pointer;
+  &:nth-child(4n) {
+    margin-right: 0px;
+  }
+  &:hover {
+    box-shadow: 0 1px 10px 1px rgba(0, 0, 0, .10);
+  }
+}
+
+.projectLogo {
+  width: 120px;
+  height: 60px;
+  margin: 0 auto;
+  background-image: url("../../assets/img/default.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.projectContext {
+  padding: 3px 0 8px;
+  font-weight: 500;
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.projectInfo {
+  padding-top: 22px;
+  text-align: left;
+  & > h6 {
+    @include verticalMiddle;
+    font-size: 13px;
+    &:nth-child(2) {
+      padding-left: 10px;
+    }
+    & span, & i {
+      @include verticalMiddle;
+    }
+    & i {
+      color: $primary-color;
+      padding-right: 4px;
+    }
+  }
+}
+
+.projectCtime {
+  padding-top: 2px;
+  float: right;
+  font-size: 12px;
+  color: #666;
+}
+
+// project new
+.newProjectBox {
+  width: 620px;
+  margin: 25px auto;
+  padding: 24px 42px 30px;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #E5E8EB;
+  border-radius: 4px;
+  box-shadow: 0 1px 10px 1px rgba(0, 0, 0, .05);
+}
+
+.newTitleBox {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #B1AFAF;
+}
+
+.newTitleDes {
+  color: #666666;
+  padding-top: 4px;
+}
+
+.newProjectFormBtn {
+  width: 120px;
+}
+.logoUploadBtnText {
+  font-size: 12px;
+}
+
+.newProjectFormBox {
+  padding-top: 15px !important;
+  & input[type=text] {
+    width: 260px;
+  }
+}
