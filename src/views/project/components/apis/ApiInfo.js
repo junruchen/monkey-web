@@ -48,8 +48,6 @@ class ApiInfo extends React.Component {
         this.setState({
           apiInfo: apiInfo
         })
-      } else {
-        message.error(res.data.message)
       }
     })
   }
@@ -64,6 +62,11 @@ class ApiInfo extends React.Component {
 
   editApi = () => {
     this.props.onEditApi(this.state.apiInfo)
+  }
+
+  openTest = (url, method) => {
+    if (method !== 'get') return
+    window.open(url)
   }
 
   render() {
@@ -81,7 +84,7 @@ class ApiInfo extends React.Component {
           <div styleName="apiInfoContent">
             <div className="uf" styleName="apiInfoTitle">
               <h4 className="uf-f1">
-                <strong styleName="apiUrl">{ApiUrl}</strong>
+                <strong onClick={() => this.openTest(ApiUrl, this.state.apiInfo.method)} styleName={this.state.apiInfo.method === 'get' ? 'apiUrl' : ''}>{ApiUrl}</strong>
                 <CopyToClipboard text={ApiUrl} onCopy={this.copyUrl}>
                   <Button size="small" styleName="copyApiBtn">复制</Button>
                 </CopyToClipboard>

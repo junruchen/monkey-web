@@ -67,8 +67,6 @@ class Apis extends React.Component {
           apiList: result.list,
           noData: result.count === 0
         })
-      } else {
-        message.error(res.data.message)
       }
     })
   }
@@ -141,8 +139,6 @@ class Apis extends React.Component {
         message.success('删除成功')
         this.getApis()
         this.props.resetApiCounts(true)
-      } else {
-        message.error(res.data.message)
       }
     })
   }
@@ -189,7 +185,7 @@ class Apis extends React.Component {
                 onClick={e => this.getApi(item.id)}>
                 <h6 styleName={classNames('apiListMethod', item.method + 'ApiMethod')}>{item.method.toUpperCase()}</h6>
                 <h6 className="uf-f1 nowrap" styleName="apiName">
-                  {item.name}
+                  {item.path}<span>{item.name}</span>
                   <i className="icon-m-trash"
                     onClick={e => this.deleteApi(item.id, e)}></i>
                 </h6>

@@ -39,9 +39,6 @@ class ProjectsNew extends React.Component {
         newProjectAPI(data).then((res) => {
           if (res.data.status === 200) {
             this.props.history.push('/projects/' + res.data.result.id)
-          } else {
-            message.error(res.data.message)
-            return false
           }
         })
       }

@@ -13,7 +13,6 @@ import BarChart from '@/components/chart/BarChart'
 import LineChart from '@/components/chart/LineChart'
 
 import Apis from './components/apis/Apis'
-import Logs from './components/logs/Logs'
 import Settings from './components/settings/Settings'
 import Users from './components/users/Users'
 
@@ -21,35 +20,17 @@ import { getProjectAPI, getProjectApiCountsAPI } from '@/apis'
 
 import { standardTimeFormat } from '@/utils'
 
-import { message } from 'antd'
-
 // TODO: resetProjectChart 更新且为true时，重新获取chart数据
 
 class Project extends React.Component {
   static propTypes = {
-    resetProjectChart: PropTypes.bool
+    resetProjectChart: PropTypes.bool,
+    userInfo: PropTypes.object
   }
 
   constructor(props) {
     super(props)
-    const url = '/projects/' + this.props.match.params.id
     this.state = {
-      url: url,
-      subMenus: [
-        {
-          label: '接口',
-          path: url
-        }, {
-          label: '动态',
-          path: url + '/logs'
-        }, {
-          label: '用户',
-          path: url + '/users'
-        }, {
-          label: '设置',
-          path: url + '/settings'
-        }
-      ],
       project: {}, // 项目详细信息
       apiCounts: {}, // 项目统计数据
       apiCreatedCountsMetric: {
@@ -131,8 +112,6 @@ class Project extends React.Component {
           project: project
         })
         this.props.setProjectInfo(project)
-      } else {
-        message.error(res.data.message)
       }
     })
   }
@@ -147,8 +126,6 @@ class Project extends React.Component {
           apiCounts: apiCounts
         })
         this.props.resetApiCounts(false)
-      } else {
-        message.error(res.data.message)
       }
     })
   }
@@ -161,6 +138,7 @@ class Project extends React.Component {
         backgroundImage: 'url(' + project.logo + ')'
       }
     }
+    const loginUserId = this.props.userInfo ? this.props.userInfo.id : ''
     return (
       <div className="container" styleName="projectContainer">
         <div>
@@ -255,20 +233,36 @@ class Project extends React.Component {
         </div>
         <div styleName="subContentBox" className="uf">
           <div styleName="subTitleBox">
-            {this.state.subMenus.map((item, idx) =>
-              <NavLink
-                exact
-                key={idx}
-                styleName="subTitle"
-                to={item.path}
-                activeClassName="projectActiveSubTitle"
-              >{item.label}</NavLink>
+            <NavLink
+              exact
+              styleName="subTitle"
+              to={'/projects/' + this.props.match.params.id}
+              activeClassName="projectActiveSubTitle"
+            >接口</NavLink>
+            {loginUserId && (loginUserId === project.creator) && (
+              <React.Fragment>
+                <NavLink
+                  exact
+                  styleName="subTitle"
+                  to={'/projects/' + this.props.match.params.id + '/users'}
+                  activeClassName="projectActiveSubTitle"
+                >用户</NavLink>
+                <NavLink
+                  exact
+                  styleName="subTitle"
+                  to={'/projects/' + this.props.match.params.id + '/settings'}
+                  activeClassName="projectActiveSubTitle"
+                >设置</NavLink>
+              </React.Fragment>
             )}
           </div>
           <Route exact path="/projects/:id" component={Apis} />
-          <Route path="/projects/:id/users" component={Users} />
-          <Route path="/projects/:id/logs" component={Logs} />
-          <Route path="/projects/:id/settings" component={Settings} />
+          {loginUserId && (loginUserId === project.creator) && (
+            <React.Fragment>
+              <Route path="/projects/:id/users" component={Users} />
+              <Route path="/projects/:id/settings" component={Settings} />
+            </React.Fragment>
+          )}
         </div>
       </div>
     )
@@ -277,7 +271,8 @@ class Project extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    resetProjectChart: state.resetProjectChart
+    resetProjectChart: state.resetProjectChart,
+    userInfo: state.userInfo
   }
 }
 const mapDispatchToProps = (dispatch) => {
